@@ -63,12 +63,12 @@ $bot->run(sub {
         }
         else {
             unless ($message->{nickname} eq $bot_name) {
-                infof('received "%s" (from:%s)', $message->{text}, $message->{nickname});
 
                 my $text = $message->{text};
                 $text =~ s/\A\[NoRec\] //;
                 my ($target) = $text =~ /\Awhois (.+)/;
                 if ($target) {
+                    infof('received "%s" (from:%s)', $message->{text}, $message->{nickname});
                     ($target) = split('\s', $target); 
                     infof('target = %s', $target);
 
