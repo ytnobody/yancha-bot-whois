@@ -38,7 +38,7 @@ my $bot_name = 'whois';
 
 my $bot = Unruly->new(
     url  => 'http://yancha.hachiojipm.org',
-    tags => {BOT => 1},
+    tags => {PUBLIC => 1},
     ping_intervals => 15,
 );
 
