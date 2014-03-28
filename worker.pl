@@ -68,11 +68,13 @@ $bot->run(sub {
                 my $text = $message->{text};
                 $text =~ s/\A\[NoRec\] //;
                 my ($target) = $text =~ /\Awhois (.+)/;
-                ($target) = split('\s', $target); 
-                infof('target = %s', $target);
+                if ($target) {
+                    ($target) = split('\s', $target); 
+                    infof('target = %s', $target);
 
-                my $response = work($target);
-                $bot->hidden_post($response, @{$message->{tags}});
+                    my $response = work($target);
+                    $bot->hidden_post($response, @{$message->{tags}});
+                }
             }
         }
     });
