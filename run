@@ -1,3 +1,5 @@
 #!/bin/sh
 exec 2>&1
-exec perl worker.pl
+exec setuidgid ytnobody envdir ./env ./worker.pl
+sleep 3
+
